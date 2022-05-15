@@ -5,10 +5,7 @@ const Redis = require('redis')
 
 // const runApp = async () =>  {
 
-    let PORT = process.env.PORT;
-    if (PORT == null || PORT == "") {
-      PORT = 8000;
-    }
+    let PORT = process.env.PORT || 8000;
 
     const express = require('express')
     const app = express()
