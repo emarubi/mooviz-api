@@ -4,6 +4,7 @@
   "description": "a node Js/ React Js project to search and retrieve movies from OMDB api",
   "main": "app.js",
   "scripts": {
+    "start":  "nodemon app.js" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

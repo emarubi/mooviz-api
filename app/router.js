@@ -4,9 +4,16 @@ const axios = require('axios')
 const redis = require('redis')
 
 const DEFAULT_EXPIRATION = 86400
-const client = redis.createClient()
-client.on('error', (err) => console.log('Redis Client Error', err));
-client.connect();
+// const client = redis.createClient()
+// client.on('error', (err) => console.log('Redis Client Error', err));
+// client.connect();
+let redisClient
+if(process.env.REDISCLOUD_URL){
+    let redisURL = url.parse(process.env.REDISCLOUD_URL);
+    redisClient = redis.createClient(redisURL)
+} else {
+    redisClient = redis.createClient()
+}
 console.log('Redis connected!')
 
 let queryString
